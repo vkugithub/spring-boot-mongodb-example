@@ -1,5 +1,6 @@
 package com.techprimers.mongodb.springbootmongodbexample.config;
 
+import com.techprimers.mongodb.springbootmongodbexample.document.Address;
 import com.techprimers.mongodb.springbootmongodbexample.document.Users;
 import com.techprimers.mongodb.springbootmongodbexample.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -15,8 +16,8 @@ public class MongoDBConfig {
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository) {
         return strings -> {
-            userRepository.save(new Users(1, "Peter", "Development", 3000L));
-            userRepository.save(new Users(2, "Sam", "Operations", 2000L));
+            userRepository.save(new Users(1, "Peter", "Development", 3000L,new Address("Delhi", "110001")));
+            userRepository.save(new Users(2, "Sam", "Operations", 2000L,new Address("Delhi", "110002")));
         };
     }
 
